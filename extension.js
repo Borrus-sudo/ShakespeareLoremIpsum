@@ -219,7 +219,8 @@ function activate(context) {
         if (activeEditor) {
             const position = activeEditor.selection.active;
             const randomShakespeareanText = plays[Math.floor(Math.random() * plays.length)];
-            activeEditor.insertSnippet(new vscode.SnippetString(" " + randomShakespeareanText.text + " "), position);
+            const snippet = new vscode.SnippetString(" " + randomShakespeareanText.text + " ");
+            activeEditor.insertSnippet(snippet, position);
         } else
             vscode.window.showErrorMessage(errorMessages.unactiveEditor);
     });
